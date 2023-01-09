@@ -1,20 +1,20 @@
 package model;
 
-public class movimiento {
-	private int cantidad;
+public class Movimiento {
+	private double cantidad;
 	private String tipo;
 	
-	public movimiento(int cantidad, String tipo) {
+	public Movimiento(double cantidad, String tipo) {
 		super();
 		this.cantidad = cantidad;
 		this.tipo = tipo;
 	}
 
-	public int getCantidad() {
+	public double getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(double cantidad) {
 		this.cantidad = cantidad;
 	}
 

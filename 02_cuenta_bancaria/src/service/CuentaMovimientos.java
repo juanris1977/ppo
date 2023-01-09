@@ -2,31 +2,32 @@ package service;
 
 import java.util.ArrayList;
 
-import model.movimiento;
+import model.Movimiento;
 
 public class CuentaMovimientos extends CuentaLimite{
 	
-	private ArrayList<movimiento> movs = new ArrayList<movimiento>();
+	private ArrayList<Movimiento> movs;// = new ArrayList<movimiento>();
 	
 	
 	// constructor
-	public CuentaMovimientos () {
-		
+	public CuentaMovimientos (double saldo, double limite , ArrayList<Movimiento> m) {
+			super(saldo,limite);
+			this.movs=m;
 	}
 	
 	public void ingresar (double dinero ) {
 		super.ingresar(dinero);
-		
-		movs.add(null)
+		Movimiento mov = new Movimiento(dinero,"ingresar");		
+		movs.add(mov);
 	}
 	
-	
-	
-	public ArrayList <movimiento> movimientosRealizados ( ) {
+	public void extraer (double dinero ) {
+		super.extraer(dinero); 
+		Movimiento mov = new Movimiento(dinero,"extraer");		
+		movs.add(mov);
+	}
 		
-		ArrayList<movimiento> movs = new ArrayList<movimiento>();
-		
-		
+	public ArrayList <Movimiento> movimientosRealizados ( ) {
 		return movs;
 	}
 	
