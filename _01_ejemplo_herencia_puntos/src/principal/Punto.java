@@ -12,6 +12,8 @@ public class Punto {
 		x= 10;
 		y= 5;
 	}
+	
+	//settet and getter
 	public int getX() {
 		return x;
 	}
@@ -25,7 +27,9 @@ public class Punto {
 		this.y = y;
 	}
 	
-	//settet and getter
+	public void dibujar () {
+		System.out.println("Coordenadas: "+x+" , "+y);
+	}
 	
 
 }
