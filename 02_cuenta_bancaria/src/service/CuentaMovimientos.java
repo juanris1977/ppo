@@ -67,7 +67,7 @@ public class CuentaMovimientos extends CuentaLimite{
 			movs.add(mov);
 		}
 	
-		ajustarLimite();   //  para que  limite quede actualizado despues de extraer
+		ajustarLimite();   //  para que  limite  actualizado despues de extraer
 			
 		
 	}
