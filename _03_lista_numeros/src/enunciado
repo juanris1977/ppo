@@ -1,0 +1,10 @@
+Crear una nueva clase de coleccion para listas de enteros.
+
+Esta nueva clase, a la que llamaremos ListaNumeros, va a heredar ArrayList<Integer>
+
+Metodos nuevos:
+	*first(). Devuelve el primer número de la colección
+	*last(). Devuelve el último número de la colección
+	*sum() . Devuelve la suma de todos los números
+
+No se pueden añadir números repetidos

@@ -15,3 +15,12 @@ tercera parte:
 Se creará una nueva clase que registre los movimientos realizados en la cuenta (ingreso y extracción).
 Cada movimiento se caracteriza por una cantidad y un tipo (ingreso o extracción).
 Incorporará un nuevo método que devuelva los movimientos registrados
+
+cuarta parte:
+
+Al iniciar el programa, se solicita al usuario la introduccion de un saldo inicial y un limite
+A partir de ahi, aparecerá un menu:
+1 Ingresar dinero
+2 extraer dinero
+3 Consultar saldo y movimientos
+4 salir

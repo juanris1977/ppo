@@ -1,0 +1,5 @@
+Crear 2 subclases de Figura: Triangulo y Circulo
+
+Atributos:
+- Triangulo: Base , altura
+- Circulo: radio
