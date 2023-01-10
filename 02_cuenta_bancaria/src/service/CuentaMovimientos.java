@@ -34,7 +34,7 @@ import model.Movimiento;
 */
 public class CuentaMovimientos extends CuentaLimite{
 	
-	private ArrayList<Movimiento> movs = new ArrayList<Movimiento>();
+	private ArrayList<Movimiento> movs = new ArrayList<>();
 
 	
 	// constructor
