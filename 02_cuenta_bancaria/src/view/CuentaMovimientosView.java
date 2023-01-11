@@ -9,7 +9,7 @@ import service.CuentaMovimientos;
 
 public class CuentaMovimientosView {
 	static Scanner sc = new Scanner (System.in);
-	static CuentaMovimientos cuenta;
+	static CuentaMovimientos cuenta; //
 	
 
 	public static void main(String[] args) {

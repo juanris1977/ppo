@@ -14,7 +14,7 @@ public class TestConPolimorfismo {
 	}
 
 	static void mostrarDatosFigura(Figura f) {
-		System.out.println("Tipo de figura: "+f.getClass().getName());
+		System.out.println("Tipo de figura: "+f.getClass().getSimpleName());
 		System.out.println("Color: "+f.getColor());
 		System.out.println("Superficie: "+f.superficie());
 	}

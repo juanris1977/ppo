@@ -1,8 +1,10 @@
 package principal;
 
+// Realizar una clase con un método.
+// Ese método recibirá una colleccion de números enteros y devolvera la suma de los mismos
 import java.util.Collection;
 
-public class PolimorfismoInterface {
+public class ColeccionDeNumeros {
 	
 	public int sumaColeccion (Collection<Integer> col) {
 		

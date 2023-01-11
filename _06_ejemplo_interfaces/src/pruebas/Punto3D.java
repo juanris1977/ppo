@@ -12,7 +12,7 @@ public class Punto3D extends Punto implements Operaciones{
 	}
 	
 	public Punto3D (int x, int y , int z ) {
-		super(x,y);
+		super(x,y);  //  constructor para inicializar a discrección
 		this.z= z;
 	}
 	public void mover (int d) {
@@ -23,10 +23,8 @@ public class Punto3D extends Punto implements Operaciones{
 	}
 	
 	//sobreescribimos dibujar 
-	public void dibujar () {
-		System.out.println("coodenadas:" +getX()+" , "+getY()+" , "+z);
-		
-	}
+
+	
 
 	@Override
 	public void girar(int a) {
@@ -34,6 +32,12 @@ public class Punto3D extends Punto implements Operaciones{
 		
 	}
 
+	@Override
+	public void dibujar() {
+		System.out.println("coodenadas:" +getX()+" , "+getY()+" , "+z);
+	}
+	
+	
 	@Override
 	public int invertir() {
 		// TODO Auto-generated method stub

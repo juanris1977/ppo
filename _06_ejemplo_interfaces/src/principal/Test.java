@@ -7,7 +7,7 @@ import pruebas.Punto3D;
 public class Test {
 
 	public static void main(String[] args) {
-		Operaciones op;
+		//Operaciones op;
 		//op = new Mesa (2,7,3);
 		//op.invertir(); // invierto la mesa
 		
