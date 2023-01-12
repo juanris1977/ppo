@@ -10,6 +10,7 @@ public class Test {
 		p2.dibujar();*/
 		
 		// creamos un objeto punto3D y llamamos a sus metodos
+		//massssss
 		
 		Punto3D pd = new Punto3D(1,7,4);
 		pd.dibujar();
