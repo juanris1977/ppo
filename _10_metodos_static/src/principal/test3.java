@@ -1,6 +1,7 @@
 package principal;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class test3 {
 
@@ -12,6 +13,7 @@ public class test3 {
 		lista.add(15);
 		lista.add(9);
 			
+		List<Integer> Lista2 = List.of(7,15,9);
 	
 
 	}
