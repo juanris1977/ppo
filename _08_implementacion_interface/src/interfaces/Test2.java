@@ -9,9 +9,6 @@ interface Printer2 {
 	void print(String cad);
 }
 
-
-
-
 public class Test2 {	
 	
 	public static void main(String[] args) {	
@@ -25,7 +22,6 @@ public class Test2 {
 		};
 		pr.print("hola");
 	}
-	
 }
 	
 

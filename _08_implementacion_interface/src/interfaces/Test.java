@@ -21,10 +21,9 @@ class Imprimir implements Printer {
 public class Test {	
 	
 	public static void main(String[] args) {		
-		//Printer pr = new Imprimir();    //  Creamos un objeto del tipo Imprimir		
+		Printer pr = new Imprimir();    //  Creamos un objeto del tipo Imprimir		
 										// Porque Imprimir es una clase que implementa 
 										// esa interfaz
-		Imprimir pr = new Imprimir();
 		pr.print("hola");	
 	}
 	

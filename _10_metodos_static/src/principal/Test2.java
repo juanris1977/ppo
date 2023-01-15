@@ -2,18 +2,17 @@ package principal;
 
 interface Printer {
 	void imprime (String cad);
-	//incluiremos un método estatico que proporciones una determinada
+	//incluiremos un método estatico que proporcione una determinada
 	// implememntacion de la interfaz
 	
-	static Printer of(){                       //Devuelve un objeto de si mismma
+	/*static Printer of(){          //Devuelve un objeto de si mismma
 		return new Printer() {
 			@Override
 			public void imprime(String cad) {
 				System.out.println(cad);
 			} 
-		};
-		
-	}
+		};		
+	}*/
 }
 
 public class Test2 {
@@ -23,7 +22,14 @@ public class Test2 {
 		//para que nos de un objeto ya hecho de una clase que implementa la
 		// interfaz, y asi no tener que crear una clase que la implemente
 		
-		Printer pr = Printer.of();
+		Printer pr = new Printer() {
+			
+			@Override
+			public void imprime(String cad) {
+				System.out.println(cad);
+				
+			}
+		};
 		pr.imprime("hola");
 	}
 }

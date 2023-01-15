@@ -9,8 +9,8 @@ public class Punto {
 		this.y=y;
 	}
 	public Punto() {
-		x= 10;
-		y= 5;
+		x= 0;
+		y= 0;
 	}
 	
 	//settet and getter
