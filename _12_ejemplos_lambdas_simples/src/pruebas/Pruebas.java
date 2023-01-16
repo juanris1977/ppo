@@ -22,7 +22,7 @@ interface I3 {
 
 
 
-public class Test {
+public class Pruebas {
 
 	public static void main(String[] args) {
 		

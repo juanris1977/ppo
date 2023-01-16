@@ -1,5 +1,8 @@
 package view;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -36,6 +39,32 @@ public class PruebaDatos {
 		
 		System.out.println("pares con lambda: " + service.sumaPorCriterio(nums, t -> t%2==0 )); 
 		System.out.println("positivos con lambda: " + service.sumaPorCriterio(nums, t -> t>0 )); 
+		
+		// imprime los numeros de la lista usando el procesado de datos (accept)
+		System.out.print("imprimir pantalla: "); service.procesaLista(nums, t ->System.out.print(t+" ")); System.out.println();
+		
+		//pares e imprimir
+		System.out.print("Imprimir pares: ");  service.procesar(nums, t->t%2==0, t->System.out.print(t+" "));
+		
+		// guarda en fichero los positivos
+		service.procesar(nums, 
+						 t->t>0,
+						 x-> {
+							 String ruta="c:\\temp\\lambda.txt";
+								try(FileOutputStream fos=new FileOutputStream(ruta,true);
+										PrintStream out=new PrintStream(fos);){
+									out.println(x);
+								}
+								catch(IOException ex) {
+									ex.printStackTrace();
+								}
+						 	}
+						 );
+		// Suma de los cuadrados de los numeros de la lista
+		 System.out.print("Suma de cuadrados: "); System.out.println(service.sumaTransformados(nums, t -> t*t));
+		 
+		 // suma de los cuadrados de las raices cubicas de cada elemento     usar andthen
+		 
 	}
 	
 }
