@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 import service.ManipulacionService;
@@ -11,7 +12,7 @@ import service.ManipulacionService;
 public class PruebaDatos {
 	
 	public static void main(String[] args) {
-		List<Integer> nums = List.of(3,8,211,4,9);
+		List<Integer> nums = List.of(8,64);
 		ManipulacionService service = new ManipulacionService();
 		
 		// mostrar suma de los pares por un lado, y la suma de los positivos por otro
@@ -50,7 +51,7 @@ public class PruebaDatos {
 		service.procesar(nums, 
 						 t->t>0,
 						 x-> {
-							 String ruta="c:\\temp\\lambda.txt";
+							 String ruta="c:\\ficheroseclipse\\lambda.txt";
 								try(FileOutputStream fos=new FileOutputStream(ruta,true);
 										PrintStream out=new PrintStream(fos);){
 									out.println(x);
@@ -63,8 +64,27 @@ public class PruebaDatos {
 		// Suma de los cuadrados de los numeros de la lista
 		 System.out.print("Suma de cuadrados: "); System.out.println(service.sumaTransformados(nums, t -> t*t));
 		 
-		 // suma de los cuadrados de las raices cubicas de cada elemento     usar andthen
+		 service.sumaPorCriterio(nums, t -> t%2==0 );
 		 
+		 System.out.print("Suma de pares al cuadrado: "); 
+		 System.out.println(service.sumaPorCriterioTransformados(nums, t->t%2==0, t->t*t));
+		 
+		 
+		 // suma de los cuadrados de los elementos divididos entre 2     usar andthen
+	//	 service.sumaTransformados(nums, service.sumaTransformados(nums, null));
+		 
+		 Function<Integer, Integer> cuadrados = x -> x * x;
+		 Function<Integer, Integer> divide2 = x -> x/2;
+		 Function<Integer, Integer> raizcubica = x -> (int) Math.pow(x, 1/3);
+		System.out.print(" suma de los cuadrados de los elementos divididos entre 2 : ");
+		System.out.println(
+				service.sumaTransformados(nums, divide2.andThen(cuadrados))
+				);
+		 
+		// suma de los cuadrados de las raices cubicas de cada elemento  
+		System.out.println(
+				service.sumaTransformados(nums, raizcubica.andThen(cuadrados))
+				);
 	}
 	
 }

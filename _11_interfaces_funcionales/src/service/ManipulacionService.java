@@ -88,9 +88,23 @@ public class ManipulacionService {
 	
 	*/
 	
-	public int sumaTransformados (List<Integer> numeros, Function <Integer, Integer> fun) {
+	
+	
+	public int sumaPorCriterioTransformados (List<Integer> numeros, Predicate<Integer> condicion , Function<Integer,Integer> fun) {
 		int suma= 0;
 		for (int n:numeros) {
+			if(condicion.test(n)) {
+				suma+=fun.apply(n);
+			}			
+		}
+		return suma;
+	}
+	
+	public int sumaTransformados (List<Integer> nums, Function <Integer, Integer> fun) {
+		Integer suma= 0;
+		Integer res = 0;
+		for (Integer n:nums) {
+			res = fun.apply(n);
 			 suma+=fun.apply(n);  // sumamos el resultado de transformar cada numero segun la funcion
 			}			
 		return suma;		
