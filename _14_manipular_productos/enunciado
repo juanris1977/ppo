@@ -1,0 +1,16 @@
+1 Añadir producto
+2 subir precio
+3 Ordenar productos
+4 Eliminar productos
+5 Mostrar productos
+6 salir
+
+Cada producto se identifica por :
+
+Nombre, precio,categoria
+ 
+Opcion 1: Se piden los datos del producto y se añade
+Opcion 2: Se pide un porcentaje y se sube el precio en ese porcentaje
+Opcion 3: Se ordenan los productos por precio, de menor a mayor
+Opcion 4: Se pide una categoria y se eliminan los productos de dicha categoria
+Opcion 5: Se muestran todos los productos

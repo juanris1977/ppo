@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class ManipulacionService {
 /*
@@ -109,4 +110,41 @@ public class ManipulacionService {
 			}			
 		return suma;		
 	}
+	
+	//  suma de los valores de la lista y le añadimos algo 
+	
+	public int sumaListaConValor (Collection<Integer> numeros, Supplier<Integer> data) {
+		int suma= 0;
+		
+		for (int n:numeros) {
+			suma+=suma+n;
+			}			
+					
+		
+		return suma + data.get();
+	}
+	
+	/*
+	 1. Metodo que recibe una lista de cadenas de caracteres y devuelve el total de vocales de aquellas que comiencen por "a"
+	 
+	 2. Metodo que recibe una lista de cadenas de caracteres y devuelve el total de caracteres de aquellas que tengan mas de 5 letras 
+	
+	"salida"  "armario"  "luna"  "amarilo"
+	
+	M1 devolveria : devuelve el numero de vocales de armario y de amarillo (4+4) -->8
+	M2 devuelve : El numero de caracteres de salida, armario y amarillo 6+7+7 --> 20
+	 */
+	
+	public int manipularTextos (List<String> cadenas , Predicate <String> criterio , Function <String, Integer> transforma ) {
+		int res= 0;
+		
+		for (String c: cadenas) {
+			if (criterio.test(c)) {
+				res+=transforma.apply(c);				
+			}
+		}
+		
+		return res;
+	}
+	
 }
