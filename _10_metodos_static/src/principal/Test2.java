@@ -30,6 +30,8 @@ public class Test2 {
 				
 			}
 		};
-		pr.imprime("hola");
+		pr.imprime("hola"+"\n");
+		
+		// System.out.print("The smallest value is " + smallest(x, y, z)+"\n" );
 	}
 }
