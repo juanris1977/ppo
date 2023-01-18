@@ -3,7 +3,6 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
 
 import model.Producto;
 
@@ -16,7 +15,7 @@ public class ServiceProductos {
 	}
 	
 	public void subirPrecio (Double subida) {		
-		misproductos.replaceAll ( a -> { a.setPrecio(a.getPrecio()+a.getPrecio()*subida/100);
+		misproductos.replaceAll ( a -> { a.setPrecio(a.getPrecio()+a.getPrecio()*subida/100); 
 										return a;			
 										}
 								); 
