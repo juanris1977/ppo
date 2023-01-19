@@ -18,6 +18,10 @@ public class DudasListas_remove {
 		}
 		System.out.println(nombres);
 		
+		// Juan  Pepe  Luis
+		// Juan Pepe
+		// Juan Luis Pepe Luis
+		// Excepcion
 	}
 
 }

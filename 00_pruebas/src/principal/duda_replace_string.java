@@ -15,7 +15,7 @@ public class duda_replace_string {
 		System.out.println(ta);
 		// A B C D 
 		// A C D 
-		// A B C C     , RESULTADO
+		// A B C C     , RESULTADO   Al concatenar, no se modifica el objeto inicial , sino que se crea otra cadena
 		// A B D 
 		// A B D C    , YO CREIA
 	}

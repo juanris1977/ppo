@@ -1,0 +1,17 @@
+Desarrollar la logica de negocio de una aplicación para la gestión de ciudades.
+
+Una ciudad se caracteriza por: Nombre, pais, habitantes, temperaturaMedia
+
+La clase donde implementamos la lógica de negocio, tendrá que tener estos métodos:
+
+1 Añadir ciudad: Recibe los datos de una ciudad y guarda en una lista, 
+		teniendo en cuenta que no se permiten ciudades repetidas (nombre y pais iguales)
+
+2 Número de ciudades en un pais: recibe el nombre del pais y devuelve el total de ciudades de ese país. Cero si no existe
+
+3 Ciudad más poblada: Devuelve los datos de la ciudad más poblada
+
+4 Ciudad más fria: Devuelve los datos de la ciudad más fria 
+
+5 Buscar ciudad: recibe el nombre de ciudad y pais, y devuelve los datos de la misma.
+		 Si no existe devuelve null
