@@ -2,6 +2,7 @@ package service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import model.Ciudad;
 
@@ -28,6 +29,20 @@ public class CiudadesService {
 					     .count();		
 	}
 	
+	public List<Ciudad> datosCiudadesPorCriterio (Predicate<Ciudad> cond) {
+		
+		List<Ciudad> res = new ArrayList<>();
+		for (Ciudad c : misciudades) {
+			if (cond.test(c)) {
+				res.add(c);
+			}
+		}		
+		return res;
+		
+	}
+	
+	
+	
 	public Ciudad ciudadMasPoblada () {
 		
 		return 
@@ -51,5 +66,9 @@ public class CiudadesService {
 			           .filter( a-> a.getNombre().equalsIgnoreCase(ciudadbuscada) && a.getPais().equalsIgnoreCase(paisbuscado))
 			           .findFirst()
 			           .orElse(null);
+	}
+	public List<Ciudad> mostrarTodas () {
+		return misciudades;
+		
 	}
 }
