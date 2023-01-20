@@ -107,10 +107,6 @@ public class ViewService {
 			ciudades.forEach(c->System.out.println(c.getNombre()+" de "+c.getPais()+" con "+c.getHabitantes()+" habitantes y temperatura media de "+c.getTemperatura()+" grados."));
 		}
 		else System.out.println("Aún no hay datos");
-
-		
-		
-				
 	}
 	
 	static void ciudadMasPoblada ( ) {
