@@ -1,0 +1,8 @@
+Tenemos un fichero con los datos de una serie de empleados. Cada fila contiene los datos
+de un empleado siguiendo el siguiente esquema:
+
+nombre|fecha_ingreso|salario|departamento
+
+Realizar un programa que muestre los datos del empleado más antiguo y del que tenga mayor
+salario. Después, se solicitará la introducción de un departamento y se mostrarán los datos de
+todos los empleados que pertenezcan a dicho departamento

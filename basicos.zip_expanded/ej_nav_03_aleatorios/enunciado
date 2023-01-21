@@ -1,0 +1,3 @@
+3.- Realizar un programa que genere 5 números aleatorios entre 1 y 100 (pueden repetirse).
+Después se solicitará la introducción de un número por teclado y el programa nos dirá cuantos
+números de los generados inicialmente son mayores que el número leído.

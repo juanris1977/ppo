@@ -1,0 +1,3 @@
+Dada la siguiente cadena de caracteres: "11,2,6,7,3,8,3,10,1,8,3". Hacer un programa que
+nos diga cuantos números hay en la misma. No se tendrán en cuenta duplicados, es decir, si
+hay tres 4, solo contará como uno.

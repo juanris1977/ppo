@@ -1,0 +1,4 @@
+1.- Realizar un programa para calcular la facturación de una venta. El programa solicita el
+precio del producto y después la unidades, mostrando el total del importe. Se tendrá en
+cuenta lo siguiente: Si ha comprado más de 10 unidades se aplicará un 10% de descuento, si ha
+comprado entre 5 y 10, se aplicará un 5%.
