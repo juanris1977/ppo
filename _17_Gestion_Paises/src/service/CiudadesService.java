@@ -2,8 +2,10 @@ package service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.OptionalDouble;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import model.Ciudad;
 
@@ -96,5 +98,29 @@ public class CiudadesService {
 				           .average();   //OptionalDouble  
 		}	
 	
+	//Devuelve la lista de Ciudades que pertenecen a un determinado pais 
+	public List<Ciudad> ciudadesPais (String paisbuscado) {
+		
+		return
+		  misciudades.stream()
+					     .filter(n->n.getPais().equalsIgnoreCase(paisbuscado))
+					     .collect(Collectors.toList());
+	}
+		
+	// Devuelve todas las ciudades agrupadas por pais
+		
+	public Map<String, List<Ciudad>> ciudadesPorPais () {
+		return 
+			misciudades.stream()
+					   .collect(Collectors.groupingBy(s -> s.getPais()));
+	}
 	
+	// Devuelve el total de habitantes de un determinado pais 
+	
+	public int habitantesPais (String pais) {
+		return 
+				misciudades.stream()
+				           .filter(p -> p.getPais().equalsIgnoreCase(pais))
+				           .collect (Collectors.summingInt( c -> c.getHabitantes()));
+	}
 }
