@@ -15,7 +15,7 @@ public class TestForEachMaps {
 		tabla.put(100, "neptuno");
 		
 		//recorrer los valores de un HashMap:
-		Collection<String> col=tabla.values();
+	/*	Collection<String> col=tabla.values();
 		//for each o enhanced for
 		for(String s:col) {
 			System.out.println(s);
@@ -25,7 +25,7 @@ public class TestForEachMaps {
 		Set<Integer> claves=tabla.keySet();
 		for(Integer c:claves) {
 			System.out.println(c);
-		}
+		} */
 		
 		// podemos recorrer las claves y los valores en un unico foreach
 		

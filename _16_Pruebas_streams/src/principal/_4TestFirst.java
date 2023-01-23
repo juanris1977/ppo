@@ -7,7 +7,7 @@ public class _4TestFirst {
 	public static void main(String[] args) {
 		List<String> nombres = List.of ("leche", "atún", "vino", "patatas", "leche", "agua", "vino", "lechuga");
 		
-		System.out.println("Mostrar el nombre del primer producto que comience por a, si no hay que muestre no hay ninguno: ");
+	/*	System.out.println("Mostrar el nombre del primer producto que comience por a, si no hay que muestre no hay ninguno: ");
 		
 		if (nombres.stream()
 			.filter(n->n.startsWith("a"))
@@ -22,13 +22,13 @@ public class _4TestFirst {
 				);
 				
 		}
-		
+		*/
 		//usando el orElse
 		System.out.println(
 			nombres.stream()   //devuelve un stream<String>
-			.filter(n->n.startsWith("a"))
+			.filter(n->n.startsWith("z"))
 			.findFirst()
-			.orElse("No hay nada")
+			//.orElse("No hay nada")
 		);
 		
 	}

@@ -23,7 +23,8 @@ public class FormacionService {
 																		new Alumno("alumno7",33,4)
 																		))
 
-);
+											);
+	
 	
 	//  duracion media de todos los cursos	
 	public double duracionMedia () {
@@ -36,7 +37,7 @@ public class FormacionService {
 	public List<Curso> alumnosPorCurso (int valor) {
 		return 
 			cursos.stream()
-				  .filter(c -> c.matriculas().stream().count() < valor)
+				  .filter(c -> c.matriculas().stream().count() <= valor)
 				  .collect(Collectors.toList());
 				  
 	}
@@ -44,29 +45,60 @@ public class FormacionService {
 	// edad media del curso con una determinada denominacion	
 	public double edadMedia (String denominacion) {
 		return 
-			cursos.stream()
-			      .filter(c -> c.denominacion().equalsIgnoreCase(denominacion))
-			      .collect(Collectors.toList())
-			      							.stream()
-			      							.collect(Collectors.averagingInt(c -> c.matriculas().))
-			      
+			cursos.stream()     //  Streams<Curso>
+			      .filter(c -> c.denominacion().equalsIgnoreCase(denominacion))  // stream Curso filtrado
+			      .flatMap(c -> c.matriculas().stream())   //stream de lista de alumnos
+			      .mapToDouble(a->a.edad())      // Stream de edades 
+			      .average()
+			      .orElse(0);
+		
+	/*	return 
+				cursos.stream()     //  Streams<Curso>
+				      .filter(c -> c.denominacion().equalsIgnoreCase(denominacion))  // stream Curso filtrado
+				      .flatMap(c -> c.matriculas().stream().map(a -> a.edad()))   //stream de lista de alumnos
+				      .collect(Collectors.averagingInt(e->e));
+			    
+			     */
 		}
 
 	
 	// Lista de nombres de alumnos
 	public List<String> nombresAlumnos () {
-		
+		return 
+			cursos.stream()
+			      .flatMap(c -> c.matriculas().stream())
+			      .map(a -> a.Nombre())
+			      .distinct()
+			      .toList();
 	}
 	
 	
 	// nota media de todos los cursos
 	public double notaMedia() {
+		return 
+			cursos.stream()
+			      .flatMap(c -> c.matriculas().stream()) 
+			      .mapToDouble(a -> a.nota())
+			      .average()
+			      .orElse(0);
 		
+	/*	return 
+				cursos.stream()
+				      .flatMap(c -> c.matriculas().stream().map(a -> a.nota()))
+				      .collect(Collectors.averagingDouble(n->n));  */
 	}
 	
 	// Lista de alumnos aprobados
 	public List<Alumno> alumnosAprobados () {
-		
+		return cursos.stream()
+			         .flatMap(c -> c.matriculas().stream()) 
+			         .filter(c -> c.nota() >=5)
+			       //  .collect(Collectors.toList());     
+					.toList();
+			         
+			       
+			       
+			         
 	}
 
 }

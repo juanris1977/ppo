@@ -18,7 +18,7 @@ public class TestReplaceall {
 		
 		// Utilizando replaceAll
 		
-		nums.replaceAll(x->x*x);
+		nums.replaceAll(x->x*5);
 		nums.forEach(x -> System.out.println(x));
 		
 		

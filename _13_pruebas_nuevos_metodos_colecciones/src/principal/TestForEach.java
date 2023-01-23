@@ -9,7 +9,7 @@ public class TestForEach {
 		
 		//Forma tradicional
 		for (int n : nums) {
-			System.err.println(n);
+			System.out.println(n);
 		}
 		
 		nums.forEach(n -> System.out.println(n));   // Usando el foreach 
