@@ -37,7 +37,7 @@ public class FormacionService {
 	public List<Curso> alumnosPorCurso (int valor) {
 		return 
 			cursos.stream()
-				  .filter(c -> c.matriculas().stream().count() <= valor)
+				  .filter(c -> c.matriculas().size() <= valor)
 				  .collect(Collectors.toList());
 				  
 	}
@@ -47,18 +47,10 @@ public class FormacionService {
 		return 
 			cursos.stream()     //  Streams<Curso>
 			      .filter(c -> c.denominacion().equalsIgnoreCase(denominacion))  // stream Curso filtrado
-			      .flatMap(c -> c.matriculas().stream())   //stream de lista de alumnos
-			      .mapToDouble(a->a.edad())      // Stream de edades 
-			      .average()
-			      .orElse(0);
-		
-	/*	return 
-				cursos.stream()     //  Streams<Curso>
-				      .filter(c -> c.denominacion().equalsIgnoreCase(denominacion))  // stream Curso filtrado
-				      .flatMap(c -> c.matriculas().stream().map(a -> a.edad()))   //stream de lista de alumnos
-				      .collect(Collectors.averagingInt(e->e));
+			      .flatMap(c -> c.matriculas().stream())   //stream de  alumnos
+				  .collect(Collectors.averagingDouble(a -> a.edad()));
 			    
-			     */
+			     
 		}
 
 	
@@ -66,8 +58,7 @@ public class FormacionService {
 	public List<String> nombresAlumnos () {
 		return 
 			cursos.stream()
-			      .flatMap(c -> c.matriculas().stream())
-			      .map(a -> a.Nombre())
+			      .flatMap(c -> c.matriculas().stream().map(a -> a.Nombre()))			     
 			      .distinct()
 			      .toList();
 	}
@@ -76,16 +67,11 @@ public class FormacionService {
 	// nota media de todos los cursos
 	public double notaMedia() {
 		return 
-			cursos.stream()
-			      .flatMap(c -> c.matriculas().stream()) 
-			      .mapToDouble(a -> a.nota())
-			      .average()
-			      .orElse(0);
-		
-	/*	return 
-				cursos.stream()
-				      .flatMap(c -> c.matriculas().stream().map(a -> a.nota()))
-				      .collect(Collectors.averagingDouble(n->n));  */
+			cursos.stream()  //Stream de Curso
+			      .flatMap(c -> c.matriculas().stream())  // Stream de Alumno
+			      .collect(Collectors.averagingDouble(a->a.nota()));
+			      
+			
 	}
 	
 	// Lista de alumnos aprobados
