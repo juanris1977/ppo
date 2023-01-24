@@ -15,7 +15,7 @@ public class BuscadorService {
 			);
 
 	// recibe la temática y devuelve la lista de páginas asociadas a dicha temática	
-	public List<Pagina> buscarPagina (String tematicabuscada) {
+	public List<Pagina> buscador (String tematicabuscada) {
 		return mispaginas.stream()   // Streams de paginas 
 				         .filter(p -> Arrays.stream(p.getTemas()).anyMatch(c->c.equalsIgnoreCase(tematicabuscada)))
 				         .toList();
