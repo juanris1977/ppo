@@ -81,10 +81,33 @@ public class FormacionService {
 			         .filter(c -> c.nota() >=5)
 			       //  .collect(Collectors.toList());     
 					.toList();
-			         
-			       
-			       
-			         
+	}
+	//Lista de nombrers de cursos
+		public List<String> nombresCursos () {
+			return 
+				cursos.stream()
+				      .map(c-> c.denominacion())
+				      .toList();				      
+		}
+		
+	//nota media del curso de una determinada denominacion
+	public double notaMediaCurso(String denominacion) {
+	
+		return 
+			cursos.stream()
+			      .filter(c -> c.denominacion().equalsIgnoreCase(denominacion))
+			      .flatMap(c -> c.matriculas().stream())  // Stream de Alumno
+			      .collect(Collectors.averagingDouble(a->a.nota()));
+		}
+	
+	//Lista de alumnos de un curso de una determinada denomincacion 
+	
+	public List<Alumno> listaAlumnos (String denominacion) {
+		return 
+			cursos.stream()
+			.filter(c -> c.denominacion().equalsIgnoreCase(denominacion))
+		    .flatMap(c -> c.matriculas().stream())  // Stream de Alumno		   
+		    .toList();		     
 	}
 
 }
