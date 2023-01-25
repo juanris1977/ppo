@@ -26,6 +26,8 @@ public class SeleccionServlet extends HttpServlet {
 		
 		List<Alumno> alumnos = service.listaAlumnos(nombreCurso);
 		request.setAttribute("ListaAlumnos", alumnos);
+		double media = service.notaMediaCurso(nombreCurso);
+		request.setAttribute("NotaMedia", media);
 		request.getRequestDispatcher("alumnos.jsp").forward(request, response);
 		
 	}

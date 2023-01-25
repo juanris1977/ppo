@@ -10,7 +10,9 @@
  <center>
 		<h2>Listado de alumnos</h2>
 		
-		<%List<Alumno> alumnos=(List<Alumno>)request.getAttribute("ListaAlumnos");%>
+		<%List<Alumno> alumnos=(List<Alumno>)request.getAttribute("ListaAlumnos");
+		  double media = (Double)request.getAttribute("NotaMedia");
+		%>
 		<table border="4">
 			<tr><th>Nombre</th><th>Edad</th><th>Nota</th></tr>
 			<%for(Alumno a:alumnos){%>
@@ -23,6 +25,10 @@
 		
 			<%}%>
 		</table>
+		<br>
+		<br>
+		<h4> Nota media del curso: <%=media%></h4> 
+		<br>
 		<br>
 		<br>
 		<a href="ConsultaServlet"><strong>Volver</strong></a>
