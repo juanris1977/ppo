@@ -1,4 +1,4 @@
-package model;
+package service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,16 +9,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Empleado;
+
 public class EmpleadosService {
 	private Path ruta= Path.of("c:\\ficheroseclipse\\empleados.csv");
-	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	
 	public EmpleadosService () {
 		try {
 			Files.createFile(ruta);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 	
@@ -79,6 +81,16 @@ public class EmpleadosService {
 	//devuelve una lista de departamentos
 	
 	public List<String> departamentos () {
+		try {
+			return Files.lines(ruta)
+					.map( l -> l.split("[,]")[1])
+					.distinct()
+					.toList();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 		
 	}
 		

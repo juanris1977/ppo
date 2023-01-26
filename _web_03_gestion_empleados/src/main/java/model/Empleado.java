@@ -12,6 +12,6 @@ public class Empleado {
 	private String nombre;
 	private String departamento;
 	private double salario;
-	private LocalDate fecha_ingreso;
+	private LocalDate fecha;
 	
 }
