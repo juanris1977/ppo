@@ -35,7 +35,8 @@ public class _1test {
 		nums.stream()    	//6 , 11 , -4 , -5 , 6 , 10 , 6 , 8 , 2 , 11 , 27 , -5 , -12 , 41 , 10 , 
 		.distinct()        	//6 , 11 , -4 , -5 ,  10 , 8 , 2 , 27 , -5 , -12 , 41  
 		.skip(6)			//							2 , 27 , -5 , -12 , 41  
-		.forEach(n -> System.out.println(n));
+	//	.forEach(n -> System.out.println(n));
+		.forEach(System.out::println);
 		
 	
 		

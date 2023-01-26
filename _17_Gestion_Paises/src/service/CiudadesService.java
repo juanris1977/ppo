@@ -63,7 +63,7 @@ public class CiudadesService {
 	public Ciudad ciudadMasFria () {
 		return 
 				misciudades.stream()
-				           .min( (c1, c2) -> Double.compare(c1.getTemperatura(),c2.getTemperatura() ))
+				           .min( (c1, c2) -> Double.compare(c1.getTemperatura(),c2.getTemperatura() ))				           
 				           .orElse (null);
 	
 	}
@@ -94,7 +94,8 @@ public class CiudadesService {
 		return 
 				misciudades.stream()
 				           .filter(p -> p.getPais().equalsIgnoreCase(Pais))   // Stream<Ciudad>    Nos quedamos con las ciudades de ese pais 
-				           .mapToDouble( c -> c.getTemperatura())         // DoubleStream      Convertimos cada ciudad a su temperatura
+				          // .mapToDouble( c -> c.getTemperatura())         // DoubleStream      Convertimos cada ciudad a su temperatura
+				           .mapToDouble( Ciudad::getTemperatura) 
 				           .average();   //OptionalDouble  
 		}	
 	
@@ -112,7 +113,8 @@ public class CiudadesService {
 	public Map<String, List<Ciudad>> ciudadesPorPais () {
 		return 
 			misciudades.stream()
-					   .collect(Collectors.groupingBy(s -> s.getPais()));
+				//	   .collect(Collectors.groupingBy(s -> s.getPais()));
+					   .collect(Collectors.groupingBy(Ciudad::getPais));   //referencia a metodo
 	}
 	
 	// Devuelve el total de habitantes de un determinado pais 
@@ -121,6 +123,6 @@ public class CiudadesService {
 		return 
 				misciudades.stream()
 				           .filter(p -> p.getPais().equalsIgnoreCase(pais))
-				           .collect (Collectors.summingInt( c -> c.getHabitantes()));
+				           .collect (Collectors.summingInt( Ciudad::getHabitantes));  // referencia a metodo
 	}
 }
