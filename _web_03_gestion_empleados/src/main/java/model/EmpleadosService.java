@@ -1,0 +1,87 @@
+package model;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmpleadosService {
+	private Path ruta= Path.of("c:\\ficheroseclipse\\empleados.csv");
+	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+	
+	public EmpleadosService () {
+		try {
+			Files.createFile(ruta);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	// recibe un empleado y lo guarda
+	public void altaEmpleado (Empleado empleado) {
+		
+		String linea = empleado.getNombre()+","+empleado.getDepartamento()+","+empleado.getSalario()+","+LocalDate.now();
+		
+		try {
+			Files.writeString(ruta, linea+System.lineSeparator() ,  StandardOpenOption.APPEND);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
+	//devuelve la lista de empleados de un determinado departamento
+	public List<Empleado>  empleadosPorDepartamento(String dpto) {
+		/*Empleado emp = new Empleado();
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+		ArrayList <Empleado> res = new ArrayList<>();
+
+		try {
+			List<String> Listalineas = Files.readAllLines(ruta);   // Devuelve Lista de lineas (... , ... , .... ,....)			
+			for (String s : Listalineas) {
+				
+				String[] linea=s.split("[,]");
+				Empleado e = new Empleado (linea[0], linea[1], Double.parseDouble(linea[2]), LocalDate.parse(linea[3],format));
+				if (e.getDepartamento().equalsIgnoreCase(dpto)) {
+					res.add(e);					
+				}
+			}			 
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return res;*/
+		
+		 try {
+			//Stream<String> streamlineas = Files.lines(ruta);   // stream de lineas string (....  ,  .... ,  ....  ,  ....)
+			
+			//Quiero convertir a Stream <Empleado>  primera casilla nombre, segunda casilla dpto, tercera salario, cuarta fecha
+			return Files.lines(ruta)
+						.map( c -> new Empleado (c.split("[,]")[0], c.split("[,]")[1], Double.parseDouble(c.split("[,]")[2]), LocalDate.parse(c.split("[,]")[3],format)))
+						.filter( e -> e.getDepartamento().equalsIgnoreCase(dpto))
+						.toList();
+			    
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}  
+		     
+	}
+	
+	
+	//devuelve una lista de departamentos
+	
+	public List<String> departamentos () {
+		
+	}
+		
+	
+	
+}
