@@ -12,7 +12,7 @@ import java.util.List;
 import model.Empleado;
 
 public class EmpleadosService {
-	private Path ruta= Path.of("c:\\ficheroseclipse\\empleados.csv");
+	private Path ruta= Path.of("c:\\ficheroseclipse\\empleados.txt");
 	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	
 	public EmpleadosService () {
@@ -64,15 +64,23 @@ public class EmpleadosService {
 			//Stream<String> streamlineas = Files.lines(ruta);   // stream de lineas string (....  ,  .... ,  ....  ,  ....)
 			
 			//Quiero convertir a Stream <Empleado>  primera casilla nombre, segunda casilla dpto, tercera salario, cuarta fecha
-			return Files.lines(ruta)
+			/*return Files.lines(ruta)
 						.map( c -> new Empleado (c.split("[,]")[0], c.split("[,]")[1], Double.parseDouble(c.split("[,]")[2]), LocalDate.parse(c.split("[,]")[3],format)))
 						.filter( e -> e.getDepartamento().equalsIgnoreCase(dpto))
-						.toList();
+						.toList();*/
+			
+			return Files.lines(ruta)
+					.map( c -> {
+							    String [] datos = c.split("[,]");
+					            return new Empleado (datos[0], datos[1], Double.parseDouble(datos[2]), LocalDate.parse(datos[3],format));							
+							   })
+					.filter( e -> e.getDepartamento().equalsIgnoreCase(dpto))
+					.toList();
 			    
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			return List.of();
 		}  
 		     
 	}
@@ -89,7 +97,7 @@ public class EmpleadosService {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			return List.of();
 		}
 		
 	}

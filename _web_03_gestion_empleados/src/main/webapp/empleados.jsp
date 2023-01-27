@@ -3,27 +3,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 <body>
 	<center>
 		
 		<br>
 		<br>
 	    <br>
-	    <h2>Listado de empleados de <%=(String)request.getAttribute("Departamento")%></h2>
+	    <h2>Listado de empleados del departamento de <u><%=(String)request.getAttribute("Departamento")%></u></h2>
+	    
 		<%List<Empleado> empleados=(List<Empleado>)request.getAttribute("ListaEmpleados");
 		  DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-YYYY");%>		  
 		
-		<table border="4">
-			<tr><th>  Nombre  </th><th>Departamento</th><th>  Salario  </th><th>Fecha de ingreso</th></tr>
+		<table border="4" cellpadding="5">
+			<tr><th><FONT SIZE=4>  Nombre  </FONT></th><th><FONT SIZE=4>  Salario  </FONT> </th><th><FONT SIZE=4>  Fecha de alta  </FONT></th></tr>
 			<%for(Empleado e: empleados){%>
 				<tr>
-					<td><%=e.getNombre()%> </td>
-					<td><center><%=e.getDepartamento()%>  </center>	</td>
-					<td><%=e.getSalario()%> </td>
-					<td  align="right"><%=e.getFecha().format(formato)%> </td>				
+					<td><center><%=e.getNombre()%> </center>	</td>					
+					<td><center><%=e.getSalario()%> </center>	</td>
+					<td><center><%=e.getFecha().format(formato)%> </center>	</td>				
 				</tr>		
 			<%}%>
 		</table>
