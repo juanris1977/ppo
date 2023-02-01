@@ -1,5 +1,7 @@
 package model;
 
+import java.util.HashMap;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +15,9 @@ public class Pais {
 	private String region;
 	private long population;
 	private String flag;
+	private String[] borders;
+	private String alpha3Code;
+	
+	
 }
+

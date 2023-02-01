@@ -18,7 +18,7 @@ public class Test {
 		
 		Ciudad3 c3 = new Ciudad3("Madrid" , "España");
 		Ciudad3 c4 = new Ciudad3 () ;
-		System.out.println(c4);
+		System.out.println(c3);
 	}
 
 	

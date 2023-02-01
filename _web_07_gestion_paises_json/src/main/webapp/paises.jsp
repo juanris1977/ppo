@@ -26,6 +26,8 @@ tr:nth-child(even) {
 	    <br>
 	    <h2>Listado de paises del continente de <u><%=(String)request.getAttribute("Continente")%></u></h2>
 	    <br>
+	    <h4>(Pincha sobre el nombre del país para ver los paises adyacentes)</h4>
+	   
 		<br>
 	    <a href="ContinenteServlet"><strong>Volver a elegir continente</strong></a>
 	    <br>
@@ -39,12 +41,12 @@ tr:nth-child(even) {
 			<tr><th><FONT SIZE=4>  Pais  </FONT></th><th><FONT SIZE=4>  Capital  </FONT> </th><th><FONT SIZE=4>  Población  </FONT></th><th><FONT SIZE=4>  Bandera  </FONT></th></tr>
 			<%for(Pais p: paises){%>
 				<tr>
-					<td><center><%=p.getName()%> </center></td>					
+					<td><center><a href="InfoServlet?pais=<%=p.getName()%>"><%=p.getName()%> </center></td>					
 					<td><center><%=p.getCapital()%> </center></td>
 					<td><center><%=formato.format(p.getPopulation())%> </center></td>
 					<td><center><img src=<%=p.getFlag()%>  alt=" " width="35" height="35"> </center></td>		
 				</tr>		
-			<%}%>
+			<%}%>   
 		</table>
 		<br>
 		<br>
