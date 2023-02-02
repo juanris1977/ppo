@@ -12,7 +12,7 @@ import model.Pais;
 
 public class PaisesLocatorFicherosImpl implements PaisesLocator {
 
-	String ruta="c:\\Ficheros\\paises.json";	
+	String ruta="c:\\Ficheroseclipse\\paises.json";	
 	Gson gson=new Gson();
 	
 	@Override

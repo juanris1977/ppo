@@ -13,10 +13,14 @@ public class Pais {
 	private String name;
 	private String capital;
 	private String region;
+	private String subregion;
 	private long population;
+	private double area;
 	private String flag;
 	private String[] borders;
 	private String alpha3Code;
+	private HashMap<String,String> translations;
+	
 	
 	
 }

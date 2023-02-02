@@ -44,7 +44,7 @@ tr:nth-child(even) {
 					<td><center><a href="InfoServlet?pais=<%=p.getName()%>"><%=p.getName()%> </center></td>					
 					<td><center><%=p.getCapital()%> </center></td>
 					<td><center><%=formato.format(p.getPopulation())%> </center></td>
-					<td><center><img src=<%=p.getFlag()%>  alt=" " width="35" height="35"> </center></td>		
+					<td><center><img src=<%=p.getFlag()%>  alt=" " width="50" height="50"> </center></td>		
 				</tr>		
 			<%}%>   
 		</table>
